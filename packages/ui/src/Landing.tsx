@@ -32,10 +32,8 @@ function Landing() {
                     <div>
                        <GetStartedBtn className="btn-gradient rounded-full px-5 py-2" ariaLabel="Get started"/>
                     </div>
-                    <div className="w-full flex justify-center">
-                        <div className="w-full max-w-4xl relative">
-                            <VideoPlayer/>
-                        </div>
+                    <div className="mt-16 w-full flex flex-col items-center">
+                        <VideoPlayer/>
                     </div>
                 </div>
             </div>

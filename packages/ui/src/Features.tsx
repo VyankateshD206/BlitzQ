@@ -8,51 +8,54 @@ function Features() {
                     <div className="w-[90%] sm:w-[70%] text-center sm:text-lg text-balance">
                         Our AI-powered quiz platform enhances your learning experience with personalized assessments and insightful analytics.
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <div className="w-full bg-purple-300 rounded-lg p-4">
-                            <div className="bg-purple-200 rounded-xl p-2 w-max">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div aria-label="AI - Generated Quizzes" className="w-full card-energetic rounded-lg p-6 hover:scale-105 transition-transform duration-200">
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/50">
                                 <GraduationCap />
                             </div>
-                            <div className="text-lg font-bold mt-2">
+                            <div className="text-lg font-bold mt-3 text-slate-800">
                                 AI - Generated Quizzes
                             </div>
-                            <div>
-                                Our advanced AI creates personalized quizzes on any topic you choose. Perfect for testing knowledge or preparing for exams.
+                            <div className="text-slate-800 line-clamp-1">
+                                    Get instant, personalized quizzes on any topic—perfect for practice.
                             </div>
                         </div>
-                        <div className="w-full bg-purple-300 rounded-lg p-4">
-                            <div className="bg-purple-200 rounded-xl p-2 w-max">
+
+                        <div aria-label="Detailed Analytics" className="w-full card-energetic rounded-lg p-6 hover:scale-105 transition-transform duration-200">
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/50">
                                 <ChartPie />
                             </div>
-                            <div className="text-lg font-bold mt-2">
+                            <div className="text-lg font-bold mt-3 text-slate-800">
                                 Detailed Analytics
                             </div>
-                            <div>
-                                Track your performance with comprehensive statistics. Identify strengths and areas for improvement at a glance.
+                            <div className="text-slate-800 line-clamp-1">
+                                    See clear stats, spot weak areas fast, and improve with every session.
                             </div>
                         </div>
-                        <div className="w-full bg-purple-300 rounded-lg p-4">
-                            <div className="bg-purple-200 rounded-xl p-2 w-max">
+
+                        <div aria-label="Instant Feedback" className="w-full card-energetic rounded-lg p-6 hover:scale-105 transition-transform duration-200">
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/50">
                                 <Zap />
                             </div>
-                            <div className="text-lg font-bold mt-2">
+                            <div className="text-lg font-bold mt-3 text-slate-800">
                                 Instant Feedback
                             </div>
-                            <div>
-                                Receive immediate answers and explanations after each question. Understand why your answers were right or wrong.
+                            <div className="text-slate-800 line-clamp-1">
+                                    Get answers and explanations immediately so you learn as you go.
                             </div>
                         </div>
-                        <div className="w-full bg-purple-300 rounded-lg p-4">
-                                <div className="bg-purple-200 rounded-xl p-2 w-max">
-                                    <SlidersVertical />
-                                </div>
-                                <div className="text-lg font-bold mt-2">
-                                    Customizable Difficulty
-                                </div>
-                                <div>
-                                    Set your preferred difficulty level from easy to hard or mix of all. Gradually increase challenge as your knowledge improves.
-                                </div>
+
+                        <div aria-label="Customizable Difficulty" className="w-full card-energetic rounded-lg p-6 hover:scale-105 transition-transform duration-200">
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white/50">
+                                <SlidersVertical />
                             </div>
+                            <div className="text-lg font-bold mt-3 text-slate-800">
+                                Customizable Difficulty
+                            </div>
+                            <div className="text-slate-800 line-clamp-1">
+                                    Pick easy, hard, or mixed difficulty and level up at your pace.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

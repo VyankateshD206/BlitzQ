@@ -12,25 +12,31 @@ function Landing() {
         <div className="w-[90%] sm:w-[80%]">
             <HorizontalNav />
             <div className="mt-[80px]">
-                <div className="flex flex-col items-center gap-6">
-                    <div className="flex text-white items-center gap-2 rounded-full bg-gradient-to-r from-purple-900 to-purple-500 w-max p-2 px-3">
-                        <div>
-                            <Sparkles />
-                        </div>
-                        <div className="font-medium">
-                            AI - Powered Learning
-                        </div>
+                <div className="flex flex-col items-center gap-6 text-center motion-safe:animate-in motion-safe:fade-in-0 motion-safe:slide-in-from-bottom-4 motion-safe:duration-700">
+                    <div
+                        className="flex items-center gap-2 rounded-full w-max px-4 py-2 text-white text-sm font-medium glow-accent"
+                        style={{
+                            backgroundImage:
+                                'linear-gradient(90deg,var(--blitzq-primary),var(--blitzq-accent))',
+                        }}
+                    >
+                        <Sparkles className="h-4 w-4" />
+                        <div>AI - Powered Learning</div>
                     </div>
-                    <div className="text-4xl sm:text-5xl font-bold text-purple-600 text-center">
-                        BlitzQ Your Learning
+                    <div className="text-4xl sm:text-6xl font-extrabold text-slate-900 text-balance">
+                        BlitzQ — Master Any Topic at Lightning Speed
                     </div>
-                    <div className="w-[90%] sm:w-[70%] text-center sm:text-lg text-balance">
-                        Enter any topic and get instant, personalized quizzes and receive detailed analytics to enhance your learning.
+                    <div className="w-[90%] sm:w-[70%] sm:text-lg text-balance text-slate-700">
+                        Generate smart quizzes instantly, learn faster, and track your progress in minutes.
                     </div>
                     <div>
-                       <GetStartedBtn/>
+                       <GetStartedBtn className="btn-gradient rounded-full px-5 py-2" ariaLabel="Get started"/>
                     </div>
-                    <VideoPlayer/>
+                    <div className="w-full flex justify-center">
+                        <div className="w-full max-w-4xl relative">
+                            <VideoPlayer/>
+                        </div>
+                    </div>
                 </div>
             </div>
             <Features/>

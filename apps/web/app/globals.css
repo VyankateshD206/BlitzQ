@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,6 +10,14 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+  }
+
+  :root {
+    --blitzq-primary: #7c3aed;
+    --blitzq-accent: #ff6ba6;
+    --blitzq-cyan: #00e5ff;
+    --blitzq-bg: #f8f7fb;
+    --blitzq-text: #0f172a;
   }
 
   .dark {
@@ -33,6 +41,46 @@ html {
 .text-balance {
   text-wrap-style: balance;
 }
+
+/* Gradient helper */
+.btn-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--blitzq-primary),
+    var(--blitzq-accent)
+  );
+  color: white;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.12);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+.btn-gradient:active {
+  transform: translateY(1px);
+}
+
+.glow-accent {
+  box-shadow: 0 8px 30px rgba(255, 107, 166, 0.12);
+}
+.card-energetic {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 /* Basic scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
@@ -54,7 +102,7 @@ html {
 }
 
 /* Hide scrollbar buttons/arrows in both Firefox and Webkit */
-::-moz-scrollbar-button, 
+::-moz-scrollbar-button,
 ::-webkit-scrollbar-button {
   width: 0px;
   height: 0px;

@@ -1,0 +1,35 @@
+{
+  "name": "@repo/db",
+  "version": "1.0.0",
+  "description": "",
+  "private": "true",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "generate": "drizzle-kit generate",
+    "migrate:local": "npm run generate && drizzle-kit migrate",
+    "migrate:prod": "cross-env NODE_ENV=PROD npm run generate && cross-env NODE_ENV=PROD drizzle-kit migrate",
+    "studio": "drizzle-kit studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.0",
+    "dotenv": "^16.0.3",
+    "drizzle-orm": "^0.41.0",
+    "neon": "^2.0.0",
+    "postgres": "^3.4.5"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "cross-env": "^7.0.3",
+    "drizzle-kit": "^0.30.6",
+    "typescript": "^5.8.2"
+  }
+}

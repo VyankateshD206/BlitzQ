@@ -3,12 +3,12 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 function ProfileSkeleton () {
     return (
-        <div className="flex items-center gap-2 mt-3 bg-white p-2 rounded-lg cursor-pointer">
+        <div className="flex items-center gap-2 mt-3 bg-[var(--blitzq-bg)] p-2 rounded-xl cursor-pointer">
             <div className="w-[40px] h-[40px] rounded-full">
               <Skeleton circle={true} height="100%" width="100%" />
             </div>
             <div className="flex-grow overflow-hidden text-left ">
-              <Skeleton count={2} />
+              <Skeleton count={2} borderRadius={12} />
             </div>
         </div>
     )   
@@ -23,16 +23,16 @@ function QuizSkeleton() {
         <div className="flex justify-center">
           <div className="bg-gray-200 rounded-full w-8 h-8 p-1"></div>
         </div>
-        <div className="flex-grow h-full overflow-y-auto ring-2 ring-gray-200 rounded-xl p-4">
+        <div className="flex-grow h-full overflow-y-auto ring-2 ring-gray-200 rounded-xl p-4 bg-[var(--blitzq-bg)]">
           {/* Question title */}
           <div className="text-black font-bold text-2xl break-words w-full">
-            <Skeleton height={30} />
+            <Skeleton height={30} borderRadius={12} />
           </div>
           {/* Answer options */}
           <div className="w-full mt-4 font-medium">
             {[...Array(4)].map((_, index) => (
               <div key={index} className="p-2 rounded-lg mt-3 w-full break-words">
-                <Skeleton height={40} borderRadius={8} />
+                <Skeleton height={40} borderRadius={12} />
               </div>
             ))}
           </div>

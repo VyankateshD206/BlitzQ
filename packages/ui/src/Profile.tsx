@@ -1,4 +1,4 @@
-  import { userProfile } from "@repo/types/index"
+import { userProfile } from "@repo/types/index"
 import { CreditCard, LogOut } from "lucide-react"
 import { getSession, signOut } from "next-auth/react"
 import { useRouter } from "next/navigation"
@@ -53,20 +53,31 @@ function Profile( {profile} : {profile: userProfile}) {
     return(
         <div>
             <div>
-                <button onClick={getBillingLink} className="disabled:cursor-not-allowed disabled:opacity-500" disabled={billingLoading}>
-                  <div className="flex gap-2 my-2 items-center">
-                      <div className="text-gray-500"><CreditCard/></div>
+                <button
+                  type="button"
+                  aria-label="Open billing portal"
+                  onClick={getBillingLink}
+                  className="btn-gradient rounded-full px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  disabled={billingLoading}
+                >
+                  <div className="flex gap-2 items-center">
+                      <div className="text-white"><CreditCard/></div>
                       <div>Billing</div>
                       { billingLoading ?  <div>
-                        <Loading color="gray-600"/>
+                        <Loading color="white"/>
                       </div> : <></>}
                   </div>
                 </button>
                 <div className="flex gap-2 my-2 items-center">
-                  <button onClick={signOutHandler}>
-                    <div className="flex gap-2 my-2 items-center">
-                      <div className="text-gray-500"><LogOut/></div>
-                      <div>Logout</div>
+                  <button
+                    type="button"
+                    aria-label="Sign out"
+                    onClick={signOutHandler}
+                    className="btn-gradient rounded-full px-4 py-2"
+                  >
+                    <div className="flex gap-2 items-center">
+                      <div className="text-white"><LogOut/></div>
+                      <div>Sign out</div>
                     </div>
                   </button>
                 </div>

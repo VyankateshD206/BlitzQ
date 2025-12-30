@@ -1,32 +1,88 @@
 'use client';
 import Link from 'next/link'
+import { useEffect, useState } from 'react';
 
 
 function HorizontalNav() {
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const updateScrolled = () => setIsScrolled(window.scrollY > 8);
+        updateScrolled();
+        window.addEventListener('scroll', updateScrolled, { passive: true });
+        return () => window.removeEventListener('scroll', updateScrolled);
+    }, []);
+
     return (
-        <div className="flex flex-row justify-between items-center p-3">
-            <div className="font-bold text-3xl text-purple-600">
-                BlitzQ
+        <header className={`sticky top-0 z-50 bg-white/60 backdrop-blur-md ${isScrolled ? 'shadow-md' : ''}`}>
+            <div className="flex flex-row justify-between items-center p-3">
+                <div className="font-bold text-3xl text-slate-900">
+                    <span>Blitz</span>
+                    <span
+                        className="bg-clip-text text-transparent"
+                        style={{
+                            backgroundImage:
+                                'linear-gradient(90deg,var(--blitzq-primary),var(--blitzq-accent))',
+                        }}
+                    >
+                        Q
+                    </span>
+                </div>
+
+                <div className="hidden sm:flex items-center gap-5">
+                    <div>
+                        <Link href="#features" className='hover:text-purple-700'>Features</Link> 
+                    </div>
+                    <div>
+                        <Link href="#howitworks" className='hover:text-purple-700'>How It Works</Link> 
+                    </div>
+                    <div>
+                        <Link href="#pricing" className='hover:text-purple-700'>Pricing</Link> 
+                    </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <button className="btn-gradient rounded-full px-5 py-2" onClick={() => window.location.href = '/signin'}>
+                        Sign in
+                    </button>
+
+                    <button
+                        type="button"
+                        className="sm:hidden rounded-md px-3 py-2"
+                        aria-label="Open menu"
+                        aria-expanded={isMobileMenuOpen}
+                        onClick={() => setIsMobileMenuOpen((v) => !v)}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg>
+                    </button>
+                </div>
             </div>
 
-            <div className="hidden sm:flex items-center gap-5">
-                <div>
-                    <Link href="#features" className='hover:text-purple-700'>Features</Link> 
+            {isMobileMenuOpen ? (
+                <div className="sm:hidden px-3 pb-3">
+                    <div className="flex flex-col gap-3">
+                        <Link href="#features" className='hover:text-purple-700'>Features</Link>
+                        <Link href="#howitworks" className='hover:text-purple-700'>How It Works</Link>
+                        <Link href="#pricing" className='hover:text-purple-700'>Pricing</Link>
+                    </div>
                 </div>
-                <div>
-                    <Link href="#howitworks" className='hover:text-purple-700'>How It Works</Link> 
-                </div>
-                <div>
-                    <Link href="#pricing" className='hover:text-purple-700'>Pricing</Link> 
-                </div>
-            </div>
-
-            <div>
-                <button className="px-4 py-2 bg-purple-600 text-white rounded-full" onClick={() => window.location.href = '/signin'}>
-                    Sign in
-                </button>
-            </div>
-        </div>
+            ) : null}
+        </header>
     );
 }
 

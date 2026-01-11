@@ -3,7 +3,7 @@ import Landing from "@repo/ui/Landing"
 
 function Page () {
   return (
-    <div className="flex flex-col items-center bg-gradient-to-r from-white via-purple-200 to-white">
+    <div className="flex flex-col items-center">
       <Landing/>
       <Footer/>
     </div>

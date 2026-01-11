@@ -25,7 +25,7 @@ function Faq() {
     return (
         <div className="mt-[50px] mb-[10px] pt-[10px]">
             <div className="flex flex-col items-center gap-4">
-                <div className="text-3xl sm:text-4xl text-center font-bold text-purple-600">Frequently Asked Questions</div>
+                <div className="text-3xl sm:text-4xl text-center font-bold text-[var(--blitzq-primary)]">Frequently Asked Questions</div>
                 <div className="w-[90%] sm:w-[70%] text-center text-balance sm:text-lg">
                     Find answers to common questions about BlitzQ
                 </div>
@@ -36,7 +36,7 @@ function Faq() {
                             const contentId = `content-${index}`;
 
                             return (
-                                <div className="border-b border-gray-400" key={index}>
+                                <div className="border-b border-[rgba(255,255,255,0.1)]" key={index}>
                                     <button
                                         type="button"
                                         aria-expanded={isOpen}
@@ -44,8 +44,8 @@ function Faq() {
                                         onClick={() => setOpenIndex(isOpen ? null : index)}
                                         className="w-full flex justify-between items-center py-5"
                                     >
-                                        <span>{ faq.question }</span>
-                                        <span className="text-slate-800 transition-transform duration-300">
+                                        <span className="text-[var(--blitzq-fg)]">{ faq.question }</span>
+                                        <span className={`${isOpen ? 'text-[var(--blitzq-accent)]' : 'text-[var(--blitzq-fg)]'} transition-transform duration-300`}>
                                             {isOpen ? (
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
                                                     <path d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z" />
@@ -61,7 +61,7 @@ function Faq() {
                                         id={contentId}
                                         className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px]' : 'max-h-0'}`}
                                     >
-                                        <div className="pb-5 text-slate-600">
+                                        <div className="pb-5 text-[var(--blitzq-fg)]">
                                             { faq.answer }
                                         </div>
                                     </div>

@@ -71,30 +71,30 @@ function SignInForm() {
         }
     }
     return (
-        <div className="h-screen w-full flex items-center justify-center bg-gradient-to-r from-white via-purple-200 to-white">
-            <div className="max-sm:w-[90%] max-md:w-3/4 md:w-1/2 ring-4 ring-purple-600/50 p-4 rounded-lg shadow shadow-black bg-white">
-                <div className="text-4xl font-bold text-purple-600 text-center">
+        <div className="h-screen w-full flex items-center justify-center bg-gradient-to-r from-[var(--blitzq-bg)] via-[#0a1335] to-[var(--blitzq-bg)]">
+            <div className="max-sm:w-[90%] max-md:w-3/4 md:w-1/2 ring-4 ring-[color:rgba(47,140,255,0.45)] p-4 rounded-lg shadow shadow-black bg-[var(--blitzq-card)]">
+                <div className="text-4xl font-bold text-[var(--blitzq-primary)] text-center">
                     BlitzQ
                 </div>
                 <div className="text-center font-semibold mt-2">
                     Welcome,
                 </div>
-                <div className="text-center text-sm text-gray-600">
+                <div className="text-center text-sm text-[var(--blitzq-muted)]">
                     Please enter your details to sign in.
                 </div>
                 <div className="my-2">
                     <div className="font-bold">E-Mail Address</div>
-                    <div className="w-full rounded-xl border border-gray-300 p-1 mt-1">
+                    <div className="w-full rounded-xl border border-[color:var(--blitzq-border)] p-1 mt-1">
                         <input type="email" name="email" placeholder="Enter your email..." value={email} onChange={(e) => setEmail(e.target.value)} className="w-full bg-transparent rounded-xl p-1 outline-none" />
                     </div>
                 </div>
                 <div className="my-2 mb-4">
                     <div className="font-bold">Password</div>
-                    <div className="w-full rounded-xl border border-gray-300 p-1 flex items-center gap-1 mt-1">
+                    <div className="w-full rounded-xl border border-[color:var(--blitzq-border)] p-1 flex items-center gap-1 mt-1">
                         <div className="w-full">
                             <input type={showPassword ? 'text' : 'password'} name="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full bg-transparent rounded-xl p-1 outline-none" />
                         </div>
-                        <div className="cursor-pointer text-gray-500" onClick={() => setShowPassword((prev) => !prev)}>
+                        <div className="cursor-pointer text-[var(--blitzq-muted)]" onClick={() => setShowPassword((prev) => !prev)}>
                             {showPassword ? <EyeClosed /> : <Eye />}
                         </div>
                     </div>
@@ -117,16 +117,16 @@ function SignInForm() {
                 <div className="w-full flex justify-center items-center">
                     <div className="max-sm:w-full max-md:w-3/4 md:w-1/2 flex justify-center items-center gap-1">
                         <div className="flex items-center w-full">
-                            <div className="border border-gray-300 w-full"> </div>
+                            <div className="border border-[color:var(--blitzq-border)] w-full"> </div>
                         </div>
-                        <div className="text-gray-600">OR</div>
+                        <div className="text-[var(--blitzq-muted)]">OR</div>
                         <div className="flex items-center w-full">
-                            <div className="border border-gray-300 w-full"> </div>
+                            <div className="border border-[color:var(--blitzq-border)] w-full"> </div>
                         </div>
                     </div>
                 </div>
                 <div className="mt-3 w-full flex justify-center">
-                    <div className="border border-black p-2 rounded-lg text-black max-sm:w-full max-md:w-3/4 md:w-1/2 flex items-center justify-center gap-2">
+                    <div className="border border-[color:var(--blitzq-border)] p-2 rounded-lg text-[var(--blitzq-fg)] bg-[var(--blitzq-card)] max-sm:w-full max-md:w-3/4 md:w-1/2 flex items-center justify-center gap-2">
                         <div className="w-[30px] h-[30px]">
                             <img src="/google_icon.png" alt="google icon" className="w-full h-full" />
                         </div>

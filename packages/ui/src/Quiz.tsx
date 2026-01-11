@@ -195,11 +195,11 @@ function Quiz({quizId} : {quizId: string}) {
                     </div>
                     <div className="flex-grow h-full">
                         <div className="flex items-center gap-3 w-full">
-                            <div className="h-[7px] rounded-full flex-grow bg-gray-200">
-                                <div className={`h-full rounded-full bg-purple-600`} style={{ width: `${(answeredQuestions / quiz.quiz.questions.length) * 100}%` }}>
+                            <div className="h-[7px] rounded-full flex-grow bg-[rgba(255,255,255,0.08)]">
+                                <div className={`h-full rounded-full bg-[var(--blitzq-primary)]`} style={{ width: `${(answeredQuestions / quiz.quiz.questions.length) * 100}%` }}>
                                 </div>
                             </div>
-                            <div className="text-slate-700 font-medium">
+                            <div className="text-[var(--blitzq-muted)] font-medium">
                                 {unansweredQuestions} left
                             </div>
                         </div>
@@ -212,22 +212,25 @@ function Quiz({quizId} : {quizId: string}) {
                 </div> : <></>}
                 <div className="w-full flex items-center gap-4 max-h-[60vh] mt-3">
                     <div className="flex justify-center">
-                        <button className="bg-purple-600 rounded-full w-max p-1 text-white disabled:opacity-50 disabled:cursor-not-allowed " disabled={quizIndex === 0} onClick={() => handleNavigation(quizIndex - 1)}>
+                        <button className="bg-[var(--blitzq-primary)] rounded-full w-max p-1 text-white disabled:opacity-50 disabled:cursor-not-allowed " disabled={quizIndex === 0} onClick={() => handleNavigation(quizIndex - 1)}>
                             <ArrowLeft />
                         </button>
                     </div>
-                    <div className="flex-grow h-full overflow-y-auto ring-2 ring-purple-500/50 rounded-xl p-4 ">
-                        <div className="text-black font-bold text-2xl break-words w-full">
+                    <div className="flex-grow h-full overflow-y-auto ring-2 ring-[color:rgba(47,140,255,0.45)] rounded-xl p-4 bg-[var(--blitzq-card)] border border-[color:var(--blitzq-border)]">
+                        <div className="text-[var(--blitzq-muted)] font-medium mb-1">
+                            Question {quizIndex + 1} / {quiz.quiz.questions.length}
+                        </div>
+                        <div className="text-[var(--blitzq-fg)] font-bold text-2xl break-words w-full">
                             {quiz.quiz.questions[quizIndex].question}
                         </div>
                         <div className="w-full mt-4 font-medium">
-                            { quiz.quiz.questions[quizIndex]?.options.map((o, index) => <button className={` p-2 text-left rounded-lg mt-3 w-full break-words shadow-sm hover:shadow-inner transition-all disabled:cursor-not-allowed ${answers[quizIndex]?.answer ? answers[quizIndex].answer === o && answers[quizIndex].isCorrect ? "bg-green-600 text-white" : answers[quizIndex].answer === o && !answers[quizIndex].isCorrect ? "bg-red-600 text-white" : o === quiz?.quiz?.questions[quizIndex]?.correct_answer ? "bg-green-600 text-white" : "bg-purple-200 hover:bg-purple-300" : "bg-purple-200 hover:bg-purple-300"}`} key={`quiz-${quizId || ''}-question-${quizIndex}-option-` + index} onClick={() => handleAnswer(o)} disabled={(answers[quizIndex]?.answer !== null)}>
+                            { quiz.quiz.questions[quizIndex]?.options.map((o, index) => <button className={` p-2 text-left rounded-lg mt-3 w-full break-words shadow-sm hover:shadow-inner transition-all disabled:cursor-not-allowed ${answers[quizIndex]?.answer ? answers[quizIndex].answer === o && answers[quizIndex].isCorrect ? "bg-green-600 text-white" : answers[quizIndex].answer === o && !answers[quizIndex].isCorrect ? "bg-red-600 text-white" : o === quiz?.quiz?.questions[quizIndex]?.correct_answer ? "bg-green-600 text-white" : "bg-[rgba(47,140,255,0.14)] hover:bg-[rgba(47,140,255,0.22)] text-[var(--blitzq-fg)]" : "bg-[rgba(47,140,255,0.14)] hover:bg-[rgba(47,140,255,0.22)] text-[var(--blitzq-fg)]"}`} key={`quiz-${quizId || ''}-question-${quizIndex}-option-` + index} onClick={() => handleAnswer(o)} disabled={(answers[quizIndex]?.answer !== null)}>
                                 {o}
                             </button> )}
                         </div>
                     </div>
                     <div className="flex justify-center">
-                        <button className="bg-purple-600 rounded-full w-max p-1 text-white disabled:opacity-50 disabled:cursor-not-allowed" disabled={quizIndex === quiz.quiz.questions.length - 1} onClick={() => handleNavigation(quizIndex + 1)}>  
+                        <button className="bg-[var(--blitzq-primary)] rounded-full w-max p-1 text-white disabled:opacity-50 disabled:cursor-not-allowed" disabled={quizIndex === quiz.quiz.questions.length - 1} onClick={() => handleNavigation(quizIndex + 1)}>  
                             <ArrowRight />
                         </button>
                     </div>
@@ -238,7 +241,7 @@ function Quiz({quizId} : {quizId: string}) {
                             <ArrowLeft />
                         </button>
                     </div>
-                    <div className="flex-grow bg-slate-200 cursor-pointer p-2 rounded-lg mt-3 h-auto max-h-[20vh] overflow-y-auto">
+                    <div className="flex-grow bg-[var(--blitzq-card)] cursor-pointer p-2 rounded-lg mt-3 h-auto max-h-[20vh] overflow-y-auto border border-[color:var(--blitzq-border)]">
                     <div className="flex justify-between items-center font-medium"  onClick={() => setExpand((prev) => prev.map((e, i) => (i === quizIndex ? !e : e)))}>
                         <div>Detailed Explanation</div>
                         <div className="flex items-center">
@@ -263,7 +266,7 @@ function Quiz({quizId} : {quizId: string}) {
                     </div>
                 </div>
                 <div className="w-full flex justify-center items-center gap-4 mt-3">
-                    { (!quiz.submitted) ? <button className="bg-purple-600 rounded-full font-medium w-max p-2 px-3 text-white disabled:opacity-50 disabled:cursor-not-allowed" onClick={handleSubmitQuiz} disabled={answeredQuestions !== quiz.quiz.questions.length}>
+                    { (!quiz.submitted) ? <button className="bg-[var(--blitzq-primary)] rounded-full font-medium w-max p-2 px-3 text-white disabled:opacity-50 disabled:cursor-not-allowed" onClick={handleSubmitQuiz} disabled={answeredQuestions !== quiz.quiz.questions.length}>
                         <div className="w-full flex items-center justify-center">
                             {(submitLoading) ? 
                                 <div className="flex justify-center items-center"><Loading color="white"/></div> : <></>}
@@ -281,63 +284,63 @@ function Quiz({quizId} : {quizId: string}) {
             { analytics ? <div className="w-full mt-4 mb-4">
             <div className="text-2xl font-bold text-center">Analytics</div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
-              <div className="bg-white p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-purple-500/50">
-                <div className="text-gray-500">Total Time Taken</div>
+                            <div className="bg-[var(--blitzq-card)] p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-[color:rgba(47,140,255,0.35)] border border-[color:var(--blitzq-border)]">
+                                <div className="text-[var(--blitzq-muted)]">Total Time Taken</div>
                 <div className="font-bold">{formatTime(analytics?.totalTime || 0)}</div>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-purple-500/50">
-                <div className="text-gray-500">Average Time Spent per question</div>
+                            <div className="bg-[var(--blitzq-card)] p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-[color:rgba(47,140,255,0.35)] border border-[color:var(--blitzq-border)]">
+                                <div className="text-[var(--blitzq-muted)]">Average Time Spent per question</div>
                 <div className="font-bold">{formatTime(analytics?.avgTime || 0)}</div>
               </div>
-              <div className="col-span-1 md:col-span-2 h-[300px] bg-white p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-purple-500/50">
-                <div className="text-gray-500">Time Spent on each question</div>
+                            <div className="col-span-1 md:col-span-2 h-[300px] bg-[var(--blitzq-card)] p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-[color:rgba(47,140,255,0.35)] border border-[color:var(--blitzq-border)]">
+                                <div className="text-[var(--blitzq-muted)]">Time Spent on each question</div>
                 <div className="py-4 h-full">
                     <DrawTimeChart chartData={answers}/>
                 </div>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-purple-500/50">
-                <div className="text-gray-500">Correct Answers</div>
+                            <div className="bg-[var(--blitzq-card)] p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-[color:rgba(47,140,255,0.35)] border border-[color:var(--blitzq-border)]">
+                                <div className="text-[var(--blitzq-muted)]">Correct Answers</div>
                 <div className="font-bold">
                   {analytics?.correctAnswers || 0} / {quiz.quiz.questions.length}
                 </div>
               </div>
-              <div className="bg-white p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-purple-500/50">
-                <div className="text-gray-500">Incorrect Answers</div>
+                            <div className="bg-[var(--blitzq-card)] p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-[color:rgba(47,140,255,0.35)] border border-[color:var(--blitzq-border)]">
+                                <div className="text-[var(--blitzq-muted)]">Incorrect Answers</div>
                 <div className="font-bold">
                   {analytics?.wrongAnswers || 0} / {quiz.quiz.questions.length}
                 </div>
               </div>
             </div>
             {analytics && analytics.strongTopics && (
-              <div className="mt-4 bg-white p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-purple-500/50">
+                            <div className="mt-4 bg-[var(--blitzq-card)] p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-[color:rgba(47,140,255,0.35)] border border-[color:var(--blitzq-border)]">
                 <div className="font-medium">Strong Topics</div>
                 { (analytics.strongTopics.length) ? <div className="flex flex-wrap gap-2 mt-2">
                   {analytics.strongTopics.map((e, index) => (
                     <div
                       key={index}
-                      className="text-sm bg-green-100 text-green-800 rounded-full p-1 px-3"
+                                            className="text-sm bg-green-600/20 text-green-200 rounded-full p-1 px-3"
                     >
                       {e}
                     </div>
                   ))}
                 </div>
-                : <div className="text-sm text-gray-500">No strong topics</div>}
+                                : <div className="text-sm text-[var(--blitzq-muted)]">No strong topics</div>}
               </div>
             )}
             {analytics && analytics.weakTopics && (
-              <div className="mt-4 bg-white p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-purple-500/50">
+                            <div className="mt-4 bg-[var(--blitzq-card)] p-4 rounded-lg shadow shadow-purple-100 ring-1 ring-[color:rgba(47,140,255,0.35)] border border-[color:var(--blitzq-border)]">
                 <div className="font-medium">Weak Topics</div>
                 { (analytics.weakTopics.length) ? <div className="flex flex-wrap gap-2 mt-2">
                   {analytics.weakTopics.map((e, index) => (
                     <div
                       key={index}
-                      className="text-sm bg-red-100 text-red-800 rounded-full p-1 px-3"
+                                            className="text-sm bg-red-600/20 text-red-200 rounded-full p-1 px-3"
                     >
                       {e}
                     </div>
                   ))}
                 </div>
-                : <div className="text-sm text-gray-500">No weak topics</div>}    
+                                : <div className="text-sm text-[var(--blitzq-muted)]">No weak topics</div>}    
               </div>
             )}
           </div> : <></>}

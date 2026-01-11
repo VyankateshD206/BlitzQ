@@ -112,7 +112,7 @@ function Chat() {
 
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center p-1">
-            <div className="mb-4 font-bold text-2xl sm:text-3xl text-purple-600 text-center p-2">
+            <div className="mb-4 font-bold text-2xl sm:text-3xl text-[var(--blitzq-primary)] text-center p-2">
                 What topic would you like to be quizzed on?
             </div>
             <div className="w-max max-w-[600px] mb-4">
@@ -120,35 +120,35 @@ function Chat() {
                    loading ? <LoadingMessage/> : <></>
                 }
             </div>
-            <div className="w-[90%] sm:w-3/4 max-w-[600px] shadow shadow-gray-200 border border-gray-300 rounded-xl p-2 relative">
+            <div className="w-[90%] sm:w-3/4 max-w-[600px] shadow shadow-gray-200 border border-[color:var(--blitzq-border)] bg-[var(--blitzq-card)] rounded-xl p-2 relative">
                 <div>
-                    <textarea className="w-full outline-none resize-none p-2 rounded-xl" rows={2} placeholder="Enter the topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
+                    <textarea className="w-full outline-none resize-none p-2 rounded-xl bg-transparent" rows={2} placeholder="Enter the topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
                     </textarea>
                 </div>
                 <div className="flex gap-2 sm:justify-center">
                     {
-                        difficulties.map((e, index) => <div className={`text-sm sm:text-md rounded-full px-1 sm:p-1 sm:px-3 cursor-pointer border border-gray-300 ${difficulty === e ? 'bg-purple-600 text-white border-purple-600' : 'bg-white text-black hover:bg-white hover:border-purple-400 hover:text-purple-600 '}`} key={index} onClick={() => setDifficulty(e)}>
+                        difficulties.map((e, index) => <div className={`text-sm sm:text-md rounded-full px-1 sm:p-1 sm:px-3 cursor-pointer border border-[color:var(--blitzq-border)] ${difficulty === e ? 'bg-[var(--blitzq-primary)] text-white border-[color:rgba(47,140,255,0.6)]' : 'bg-[var(--blitzq-card)] text-[var(--blitzq-fg)] hover:bg-[rgba(255,255,255,0.06)] hover:border-[color:rgba(47,140,255,0.45)] hover:text-[var(--blitzq-primary)] '}`} key={index} onClick={() => setDifficulty(e)}>
                             {e.charAt(0).toUpperCase() + e.slice(1)}
                         </div>)
                     }
                 </div>
                 <div className="absolute right-2 bottom-2">
-                   <button className="bg-purple-600 rounded-full w-max p-1 text-white disabled:opacity-50 disabled:cursor-not-allowed" onClick={generateQuiz} disabled={loading || profile?.quota === 0}>
+                   <button className="bg-[var(--blitzq-primary)] rounded-full w-max p-1 text-white disabled:opacity-50 disabled:cursor-not-allowed" onClick={generateQuiz} disabled={loading || profile?.quota === 0}>
                         <ArrowRight/>
                     </button>
                 </div>
             </div>
-            {(profile?.tier === 'free') ? <button className="w-max bg-slate-200 max-w-[600px] mt-4 text-sm sm:text-md text-gray-700 p-2 rounded-lg font-medium disabled:cursor-not-allowed disabled:opacity-50" disabled={checkoutLoading} onClick={getCheckoutLink}>
+            {(profile?.tier === 'free') ? <button className="w-max bg-[var(--blitzq-card)] max-w-[600px] mt-4 text-sm sm:text-md text-[var(--blitzq-fg)] p-2 rounded-lg font-medium disabled:cursor-not-allowed disabled:opacity-50 border border-[color:var(--blitzq-border)]" disabled={checkoutLoading} onClick={getCheckoutLink}>
                 <div className="flex gap-2 items-center justify-center ">
                 <div className="flex gap-1 items-center">
                   <div>
                       Upgrade to
                   </div>
-                  <div className="bg-purple-600 text-white rounded px-1">
+                  <div className="bg-[var(--blitzq-primary)] text-white rounded px-1">
                       Pro
                   </div>
                 </div>
-                {(!checkoutLoading) ? <div className="bg-white text-purple-600 rounded-full w-[25px] h-[25px] flex items-center justify-center p-1" onClick={() => router.push("/pro")}>
+                {(!checkoutLoading) ? <div className="bg-[var(--blitzq-card)] text-[var(--blitzq-primary)] rounded-full w-[25px] h-[25px] flex items-center justify-center p-1 border border-[color:var(--blitzq-border)]" onClick={() => router.push("/pro")}>
                   <ArrowRight/> 
                 </div> : 
                 <div className="p-1">

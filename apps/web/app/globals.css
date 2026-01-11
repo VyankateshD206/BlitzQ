@@ -13,11 +13,18 @@
   }
 
   :root {
-    --blitzq-primary: #7c3aed;
-    --blitzq-accent: #ff6ba6;
+    /* Brand tokens (dark futuristic theme) */
+    --blitzq-primary: #2f8cff;
+    --blitzq-accent: #39ff14;
     --blitzq-cyan: #00e5ff;
-    --blitzq-bg: #f8f7fb;
+    --blitzq-bg: #050b1e;
     --blitzq-text: #0f172a;
+
+    /* Theme surfaces */
+    --blitzq-fg: #eaf0ff;
+    --blitzq-muted: rgba(234, 240, 255, 0.65);
+    --blitzq-card: rgba(255, 255, 255, 0.04);
+    --blitzq-border: rgba(255, 255, 255, 0.08);
   }
 
   .dark {
@@ -32,6 +39,8 @@
 body {
   font-family: "DM Sans", sans-serif;
   font-style: normal;
+  background: linear-gradient(180deg, #050b1e, #0a1335);
+  color: var(--blitzq-fg);
 }
 
 html {
@@ -50,7 +59,7 @@ html {
     var(--blitzq-accent)
   );
   color: white;
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.12);
+  box-shadow: 0 10px 28px rgba(47, 140, 255, 0.16);
   transition:
     transform 0.18s ease,
     box-shadow 0.18s ease;
@@ -60,14 +69,10 @@ html {
 }
 
 .glow-accent {
-  box-shadow: 0 8px 30px rgba(255, 107, 166, 0.12);
+  box-shadow: 0 10px 34px rgba(57, 255, 20, 0.12);
 }
 .card-energetic {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.3)
-  );
+  background: var(--blitzq-card);
   border-radius: 12px;
 }
 

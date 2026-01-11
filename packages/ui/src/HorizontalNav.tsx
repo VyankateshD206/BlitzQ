@@ -15,9 +15,9 @@ function HorizontalNav() {
     }, []);
 
     return (
-        <header className={`sticky top-0 z-50 bg-white/60 backdrop-blur-md ${isScrolled ? 'shadow-md' : ''}`}>
+        <header className={`sticky top-0 z-50 bg-[rgba(5,11,30,0.6)] backdrop-blur-md text-[var(--blitzq-fg)] ${isScrolled ? 'shadow-[0_10px_30px_rgba(0,0,0,0.35)]' : ''}`}>
             <div className="flex flex-row justify-between items-center p-3">
-                <div className="font-bold text-3xl text-slate-900">
+                <div className="font-bold text-3xl text-[var(--blitzq-fg)]">
                     <span>Blitz</span>
                     <span
                         className="bg-clip-text text-transparent"
@@ -32,18 +32,18 @@ function HorizontalNav() {
 
                 <div className="hidden sm:flex items-center gap-5">
                     <div>
-                        <Link href="#features" className='hover:text-purple-700'>Features</Link> 
+                        <Link href="#features" className='text-[var(--blitzq-fg)] hover:text-transparent hover:bg-clip-text hover:bg-[linear-gradient(90deg,var(--blitzq-primary),var(--blitzq-accent))]'>Features</Link> 
                     </div>
                     <div>
-                        <Link href="#howitworks" className='hover:text-purple-700'>How It Works</Link> 
+                        <Link href="#howitworks" className='text-[var(--blitzq-fg)] hover:text-transparent hover:bg-clip-text hover:bg-[linear-gradient(90deg,var(--blitzq-primary),var(--blitzq-accent))]'>How It Works</Link> 
                     </div>
                     <div>
-                        <Link href="#pricing" className='hover:text-purple-700'>Pricing</Link> 
+                        <Link href="#pricing" className='text-[var(--blitzq-fg)] hover:text-transparent hover:bg-clip-text hover:bg-[linear-gradient(90deg,var(--blitzq-primary),var(--blitzq-accent))]'>Pricing</Link> 
                     </div>
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <button className="btn-gradient rounded-full px-5 py-2" onClick={() => window.location.href = '/signin'}>
+                    <button className="btn-gradient glow-accent rounded-full px-5 py-2 hover:shadow-[0_14px_40px_rgba(57,255,20,0.14)] hover:-translate-y-[1px]" onClick={() => window.location.href = '/signin'}>
                         Sign in
                     </button>
 
@@ -76,9 +76,9 @@ function HorizontalNav() {
             {isMobileMenuOpen ? (
                 <div className="sm:hidden px-3 pb-3">
                     <div className="flex flex-col gap-3">
-                        <Link href="#features" className='hover:text-purple-700'>Features</Link>
-                        <Link href="#howitworks" className='hover:text-purple-700'>How It Works</Link>
-                        <Link href="#pricing" className='hover:text-purple-700'>Pricing</Link>
+                        <Link href="#features" className='text-[var(--blitzq-fg)] hover:text-transparent hover:bg-clip-text hover:bg-[linear-gradient(90deg,var(--blitzq-primary),var(--blitzq-accent))]'>Features</Link>
+                        <Link href="#howitworks" className='text-[var(--blitzq-fg)] hover:text-transparent hover:bg-clip-text hover:bg-[linear-gradient(90deg,var(--blitzq-primary),var(--blitzq-accent))]'>How It Works</Link>
+                        <Link href="#pricing" className='text-[var(--blitzq-fg)] hover:text-transparent hover:bg-clip-text hover:bg-[linear-gradient(90deg,var(--blitzq-primary),var(--blitzq-accent))]'>Pricing</Link>
                     </div>
                 </div>
             ) : null}

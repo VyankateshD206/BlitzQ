@@ -104,12 +104,12 @@ function HowItWork(): JSX.Element {
     return (
         <div className="mt-20 pt-3" id="howitworks" ref={componentRef}>
             <div className="flex flex-col items-center gap-4">
-                <div className="text-3xl sm:text-4xl text-center font-bold text-purple-600">How It Works</div>
+                <div className="text-3xl sm:text-4xl text-center font-bold text-[var(--blitzq-primary)]">How It Works</div>
                 <div className="w-full sm:w-3/4 md:w-2/3 text-center text-balance sm:text-lg">
                     Go from topic to personalized learning in three simple steps
                 </div>
                 <div className="w-full flex flex-col items-center">
-                    <div className="w-full sm:w-3/4 md:w-2/3 rounded-lg border-4 border-purple-300 overflow-hidden">
+                    <div className="w-full sm:w-3/4 md:w-2/3 rounded-lg border-4 border-[var(--blitzq-primary)] overflow-hidden">
                         {/* Image container with transitions */}
                         <div className="relative overflow-hidden rounded-lg rounded-b-none">
                             {data.map((item, index) => (
@@ -134,7 +134,7 @@ function HowItWork(): JSX.Element {
                         </div>
                         
                         {/* Text content without transitions */}
-                        <div className="w-full flex flex-col items-center gap-2 bg-purple-300 rounded p-4 rounded-t-none">
+                        <div className="w-full flex flex-col items-center gap-2 bg-[rgba(255,255,255,0.06)] rounded p-4 rounded-t-none">
                             <div className="text-xl font-bold mt-2 text-center">
                                 {data[currentIndex]?.title}
                             </div>
@@ -154,7 +154,7 @@ function HowItWork(): JSX.Element {
                                 {/* Progress indicator inside the bar */}
                                 {index === currentIndex && (
                                     <div 
-                                        className="absolute top-0 left-0 h-full bg-purple-600 transition-all duration-100 ease-linear"
+                                        className="absolute top-0 left-0 h-full bg-[var(--blitzq-accent)] transition-all duration-100 ease-linear"
                                         style={{ width: `${progress}%` }}
                                     />
                                 )}
@@ -163,7 +163,7 @@ function HowItWork(): JSX.Element {
                                 {index !== currentIndex && (
                                     <div 
                                         className={`absolute top-0 left-0 h-full w-full ${
-                                            index === currentIndex ? 'bg-purple-600' : ''
+                                            index === currentIndex ? 'bg-[var(--blitzq-accent)]' : ''
                                         }`}
                                     />
                                 )}

@@ -128,16 +128,16 @@ function VerticalNav({ setShowSideBar }: { setShowSideBar: Dispatch<SetStateActi
   }, [])
 
   return (
-    <div className="p-3 rounded-tr-lg rounded-br-lg h-screen bg-gray-100 w-full flex flex-col">
+    <div className="p-3 rounded-tr-lg rounded-br-lg h-screen bg-[var(--blitzq-card)] w-full flex flex-col">
       <div className="flex justify-between items-center mb-3">
-        <div className="text-purple-600 font-bold text-3xl text-center">
+        <div className="text-[var(--blitzq-primary)] font-bold text-3xl text-center">
           BlitzQ
         </div>
         <div className="cursor-pointer w-max" onClick={() => setShowSideBar(false)}>
           <X />
         </div>
       </div>
-      <div className="w-full bg-purple-600 text-white p-2 rounded-lg my-2 text-center">
+      <div className="w-full bg-[var(--blitzq-primary)] text-white p-2 rounded-lg my-2 text-center">
         <Link href="/quiz" className="w-full">
           New Quiz
         </Link>
@@ -158,7 +158,7 @@ function VerticalNav({ setShowSideBar }: { setShowSideBar: Dispatch<SetStateActi
             scrollableTarget="scrollableDiv"
           >
             {quizzes.map((quiz, index) => (
-              <div className={`rounded-lg p-2 mt-1 cursor-pointer hover:bg-gray-200 w-full ${quiz.id === id ? 'bg-gray-200' : ''}`} key={quiz.id}>
+              <div className={`rounded-lg p-2 mt-1 cursor-pointer hover:bg-[rgba(255,255,255,0.06)] w-full ${quiz.id === id ? 'bg-[rgba(255,255,255,0.06)]' : ''}`} key={quiz.id}>
                 <Link href={`/quiz/${quiz.id}`} className="w-full flex justify-between items-center">
                   <div className="truncate">{quiz.title}</div>
                 </Link>
@@ -176,17 +176,17 @@ function VerticalNav({ setShowSideBar }: { setShowSideBar: Dispatch<SetStateActi
 
       {(profileLoading) ? <ProfileSkeleton /> : (profile) ? <Popover>
         <PopoverTrigger>
-          <div className="flex items-center gap-2 mt-3 bg-white p-2 rounded-lg cursor-pointer">
-            <div className="w-[40px] h-[40px] bg-gradient-to-r from-purple-600 to-pink-900 flex justify-center items-center rounded-full">
-              {(profile.profileImg) ? <img src={profile.profileImg} alt="User Image" className="w-[40px] h-[40px] rounded-full min-w-[40px] min-h-[40px] rounded-full object-cover bg-white" onError={(e) => e.currentTarget.src = '/usericon.png'}/> :
+          <div className="flex items-center gap-2 mt-3 bg-[var(--blitzq-card)] p-2 rounded-lg cursor-pointer border border-[color:var(--blitzq-border)]">
+            <div className="w-[40px] h-[40px] bg-gradient-to-r from-[var(--blitzq-primary)] to-[var(--blitzq-accent)] flex justify-center items-center rounded-full">
+              {(profile.profileImg) ? <img src={profile.profileImg} alt="User Image" className="w-[40px] h-[40px] rounded-full min-w-[40px] min-h-[40px] object-cover bg-[var(--blitzq-card)]" onError={(e) => e.currentTarget.src = '/usericon.png'}/> :
                 <div className="text-white text-xl">{profile.email[0]?.toLocaleUpperCase()}</div>
               }
             </div>
             <div className="flex-grow overflow-hidden text-left ">
               <div className="whitespace-nowrap overflow-hidden text-ellipsis">{profile.email}</div>
-              <div className="text-gray-600">
-                <div className={`flex gap-1 items-center rounded-full px-1 text-md font-medium w-max ${profile.tier === 'pro' ? 'text-purple-600' : 'text-gray-600'}`}>
-                  <div className={`${profile.tier === 'pro' ? 'text-purple-600' : 'text-gray-600'}`}>
+              <div className="text-[var(--blitzq-muted)]">
+                <div className={`flex gap-1 items-center rounded-full px-1 text-md font-medium w-max ${profile.tier === 'pro' ? 'text-[var(--blitzq-primary)]' : 'text-[var(--blitzq-muted)]'}`}>
+                  <div className={`${profile.tier === 'pro' ? 'text-[var(--blitzq-primary)]' : 'text-[var(--blitzq-muted)]'}`}>
                     <Crown
                       size={16}
                     />
@@ -194,11 +194,11 @@ function VerticalNav({ setShowSideBar }: { setShowSideBar: Dispatch<SetStateActi
                   <div>{profile.tier[0]?.toUpperCase() + profile.tier.slice(1)}</div>
                 </div>
               </div>
-              <div className="text-gray-600 font-medium">Quiz left - {profile.quota}</div>
+              <div className="text-[var(--blitzq-muted)] font-medium">Quiz left - {profile.quota}</div>
             </div>
           </div>
         </PopoverTrigger>
-        <PopoverContent className="bg-white">
+        <PopoverContent className="bg-[var(--blitzq-card)] border border-[color:var(--blitzq-border)]">
           <Profile profile={profile} />
         </PopoverContent>
       </Popover> : <></>}
